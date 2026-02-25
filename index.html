@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Racing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: white;
+        }
+        canvas {
+            border: 2px solid #ecf0f1;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Racing Game</h1>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Game settings
+        let carX = canvas.width / 2;
+        let carY = canvas.height - 30;
+        let carWidth = 50;
+        let carHeight = 100;
+
+        // Draw the car
+        function drawCar() {
+            ctx.fillStyle = 'red';
+            ctx.fillRect(carX, carY, carWidth, carHeight);
+        }
+
+        // Game loop
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawCar();
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+</body>
+</html>
